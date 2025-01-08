@@ -4,23 +4,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Redirecting to Portfolio...</title>
-    <style>
-        /* ...existing styles... */
-    </style>
+    <link rel="stylesheet" href="landing-styles.css">
 </head>
 <body>
+    <div class="stars"></div>
     <div class="container">
         <div class="logo">KRITHIK R</div>
-        <div class="loader"></div>
+        <div class="loader">
+            <svg viewBox="0 0 100 100">
+                <circle cx="50" cy="50" r="45" />
+            </svg>
+        </div>
         <div class="message">Redirecting to portfolio...</div>
-        <a href="portfolio/index.html" class="redirect-link">Click here if not redirected</a>
+        <a href="portfolio/index.html" class="redirect-link">
+            <span>Enter Portfolio</span>
+            <svg class="arrow" viewBox="0 0 24 24">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+            </svg>
+        </a>
     </div>
-
-    <script>
-        // Redirect to portfolio directory after a short delay
-        setTimeout(() => {
-            window.location.href = 'portfolio/index.html';
-        }, 2000);
-    </script>
 </body>
+<script>
+    setTimeout(() => {
+        window.location.href = 'portfolio/index.html';
+    }, 2000);
+</script>
 </html>
