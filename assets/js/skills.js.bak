@@ -1,0 +1,119 @@
+// Technical Expertise Section Enhancements
+document.addEventListener('DOMContentLoaded', function() {
+    const skillItems = document.querySelectorAll('.skill-item');
+    const skillCategories = document.querySelectorAll('.skill-category');
+    
+    // Add subtle hover effects to skill items
+    skillItems.forEach(item => {
+        item.addEventListener('mouseenter', function() {
+            // Highlight the skill name
+            const skillName = this.querySelector('.skill-name');
+            if (skillName) {
+                skillName.style.transform = 'translateX(5px)';
+                skillName.style.color = 'var(--accent-color)';
+            }
+            
+            // Add a subtle glow effect
+            this.style.boxShadow = '0 4px 12px rgba(var(--accent-color-rgb), 0.15)';
+            
+            // Enhance the proficiency badge
+            const proficiency = this.querySelector('.proficiency');
+            if (proficiency) {
+                proficiency.style.transform = 'scale(1.05)';
+            }
+        });
+        
+        item.addEventListener('mouseleave', function() {
+            // Reset styles
+            const skillName = this.querySelector('.skill-name');
+            if (skillName) {
+                skillName.style.transform = '';
+                skillName.style.color = '';
+            }
+            
+            this.style.boxShadow = '';
+            
+            // Reset proficiency badge
+            const proficiency = this.querySelector('.proficiency');
+            if (proficiency) {
+                proficiency.style.transform = '';
+            }
+        });
+    });
+    
+    // Add hover effects to skill categories
+    skillCategories.forEach(category => {
+        category.addEventListener('mouseenter', function() {
+            // Animate the icon
+            const icon = this.querySelector('h3 i');
+            if (icon) {
+                icon.style.transform = 'scale(1.1) rotate(5deg)';
+                icon.style.color = '#fff';
+                icon.style.background = 'var(--accent-color)';
+            }
+            
+            // Add category heading animation
+            const heading = this.querySelector('h3');
+            if (heading) {
+                heading.style.color = '#fff';
+                heading.style.borderBottomColor = 'rgba(var(--accent-color-rgb), 0.3)';
+            }
+        });
+        
+        category.addEventListener('mouseleave', function() {
+            // Reset styles
+            const icon = this.querySelector('h3 i');
+            if (icon) {
+                icon.style.transform = '';
+                icon.style.color = '';
+                icon.style.background = '';
+            }
+            
+            // Reset heading
+            const heading = this.querySelector('h3');
+            if (heading) {
+                heading.style.color = '';
+                heading.style.borderBottomColor = '';
+            }
+        });
+    });
+    
+    // Add progressive reveal for skill items
+    function animateSkillItems() {
+        skillItems.forEach((item, index) => {
+            setTimeout(() => {
+                item.style.opacity = '0';
+                item.style.transform = 'translateX(20px)';
+                
+                // Use a timeout to trigger the animation
+                setTimeout(() => {
+                    item.style.transition = 'all 0.4s ease';
+                    item.style.opacity = '1';
+                    item.style.transform = 'translateX(0)';
+                }, 50);
+            }, index * 80);
+        });
+    }
+    
+    // Set up intersection observer to trigger animations when section is in view
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                animateSkillItems();
+                observer.unobserve(entry.target);
+            }
+        });
+    }, {
+        threshold: 0.2
+    });
+    
+    // Observe the skills section
+    const skillsSection = document.querySelector('.skills-section');
+    if (skillsSection) {
+        observer.observe(skillsSection);
+    }
+});
+    
+    // Start animations after a small delay
+    setTimeout(initAnimations, 300);
+});

@@ -1,0 +1,42 @@
+/* Form validation and error styles */
+.invalid {
+    border: 1px solid #ff3366 !important;
+    box-shadow: 0 0 0 2px rgba(255, 51, 102, 0.2);
+}
+
+.error-message {
+    color: #ff3366;
+    font-size: 0.8rem;
+    margin-top: 0.3rem;
+    animation: fadeIn 0.3s ease;
+}
+
+.form-message {
+    padding: 1rem;
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+    font-weight: 500;
+    animation: fadeIn 0.5s ease;
+}
+
+.form-message.success {
+    background: rgba(39, 174, 96, 0.1);
+    border: 1px solid rgba(39, 174, 96, 0.3);
+    color: #27ae60;
+}
+
+.form-message.error {
+    background: rgba(255, 51, 102, 0.1);
+    border: 1px solid rgba(255, 51, 102, 0.3);
+    color: #ff3366;
+}
+
+.form-message.fade-out {
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}

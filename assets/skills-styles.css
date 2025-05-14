@@ -1,0 +1,353 @@
+/* Technical Expertise Section Styling */
+:root {
+    --skill-primary: var(--accent-color);
+    --skill-border: rgba(255, 255, 255, 0.05);
+    --skill-hover-border: rgba(255, 255, 255, 0.1);
+    --skill-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    --skill-hover-shadow: 0 8px 28px rgba(0, 0, 0, 0.15);
+    --skill-bg: rgba(255, 255, 255, 0.02);
+    --skill-hover-bg: rgba(255, 255, 255, 0.04);
+    --skill-transition: all 0.3s ease;
+}
+
+/* Skills Section Container */
+.skills-section {
+    padding: 6rem 3rem;
+    background: linear-gradient(
+        to bottom,
+        rgba(26, 26, 26, 0.95),
+        var(--primary-color)
+    );
+    position: relative;
+    overflow: hidden;
+}
+
+/* Section subtitle - matches project section */
+.skills-section .section-subtitle {
+    text-align: center;
+    font-size: 1.2rem;
+    color: rgba(255, 255, 255, 0.6);
+    margin-bottom: 3rem;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    font-weight: 300;
+}
+
+/* Background Element */
+.skills-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 85% 30%, rgba(var(--accent-color-rgb), 0.04) 0%, transparent 50%);
+    z-index: 0;
+    pointer-events: none;
+}
+
+/* Add subtle geometric shapes in the background for extra visual interest */
+.skills-section::after {
+    content: '';
+    position: absolute;
+    bottom: 5%;
+    left: 5%;
+    width: 200px;
+    height: 200px;
+    border: 1px solid rgba(255, 255, 255, 0.03);
+    border-radius: 50%;
+    opacity: 0.2;
+    z-index: 0;
+    pointer-events: none;
+}
+
+/* Skills Container */
+.skills-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2.5rem;
+    padding: 2rem 0;
+    position: relative;
+    z-index: 1;
+}
+
+/* Skill Category - with fade-in animation */
+.skill-category {
+    background: var(--skill-bg);
+    border: 1px solid var(--skill-border);
+    border-radius: 12px;
+    padding: 1.8rem;
+    transition: var(--skill-transition);
+    position: relative;
+    overflow: hidden;
+    box-shadow: var(--skill-shadow);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 0.6s ease forwards;
+}
+
+/* Fade in animation for skill categories */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Stagger the animation for each category */
+.skill-category:nth-child(1) { animation-delay: 0.1s; }
+.skill-category:nth-child(2) { animation-delay: 0.2s; }
+.skill-category:nth-child(3) { animation-delay: 0.3s; }
+.skill-category:nth-child(4) { animation-delay: 0.4s; }
+.skill-category:nth-child(5) { animation-delay: 0.5s; }
+.skill-category:nth-child(6) { animation-delay: 0.6s; }
+.skill-category:nth-child(7) { animation-delay: 0.7s; }
+
+.skill-category:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--skill-hover-shadow);
+    border-color: var(--skill-hover-border);
+}
+
+/* Add a subtle gradient overlay on hover */
+.skill-category::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, transparent 0%, rgba(var(--accent-color-rgb), 0.03) 100%);
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.skill-category:hover::after {
+    opacity: 1;
+}
+
+/* Category Header */
+.skill-category h3 {
+    color: var(--accent-color);
+    font-size: 1.4rem;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    position: relative;
+    padding-bottom: 0.8rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.skill-category h3 i {
+    font-size: 1.2rem;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 0.5rem;
+    border-radius: 8px;
+    color: var(--accent-color);
+}
+
+/* Skill List */
+.skill-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+/* Skill Item */
+.skill-item {
+    padding: 1rem;
+    border-radius: 10px;
+    transition: var(--skill-transition);
+    position: relative;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.03);
+    margin-bottom: 0.8rem;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.skill-item:hover {
+    background: var(--skill-hover-bg);
+    transform: translateX(5px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+    border-color: rgba(var(--accent-color-rgb), 0.1);
+}
+
+/* Add a subtle glow effect on hover */
+.skill-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -150%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent 0%,
+        rgba(255, 255, 255, 0.05) 50%,
+        transparent 100%
+    );
+    transition: left 0.7s ease;
+    z-index: -1;
+}
+
+.skill-item:hover::before {
+    left: 150%;
+}
+
+.skill-item:last-child {
+    margin-bottom: 0;
+}
+
+/* Skill Header */
+.skill-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    z-index: 2;
+}
+
+/* Skill Name */
+.skill-name {
+    color: #fff;
+    font-size: 1.1rem;
+    font-weight: 500;
+    transition: var(--skill-transition);
+    position: relative;
+    padding-left: 0.3rem;
+}
+
+/* Add subtle indicator before the skill name */
+.skill-name::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 3px;
+    height: 15px;
+    background: var(--accent-color);
+    border-radius: 3px;
+    opacity: 0.7;
+    transition: var(--skill-transition);
+}
+
+.skill-item:hover .skill-name::before {
+    height: 20px;
+    opacity: 1;
+}
+
+/* Proficiency Tags */
+.proficiency {
+    font-size: 0.85rem;
+    font-weight: 500;
+    padding: 0.3rem 0.9rem;
+    border-radius: 30px;
+    letter-spacing: 0.5px;
+    transition: var(--skill-transition);
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.proficiency::before {
+    content: '';
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: currentColor;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.3);
+        opacity: 0.7;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.skill-item:hover .proficiency {
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.1);
+    transform: scale(1.05);
+}
+
+.proficiency.beginner {
+    color: #ffd700;
+    background: linear-gradient(135deg, rgba(255, 215, 0, 0.1), rgba(255, 215, 0, 0.15));
+    border: 1px solid rgba(255, 215, 0, 0.2);
+}
+
+.proficiency.intermediate {
+    color: #00bfff;
+    background: linear-gradient(135deg, rgba(0, 191, 255, 0.1), rgba(0, 191, 255, 0.15));
+    border: 1px solid rgba(0, 191, 255, 0.2);
+}
+
+.proficiency.intermediate::before {
+    animation-duration: 2.5s;
+}
+
+.proficiency.advanced {
+    color: #00d364;
+    background: linear-gradient(135deg, rgba(0, 211, 100, 0.1), rgba(0, 211, 100, 0.18));
+    border: 1px solid rgba(0, 211, 100, 0.25);
+}
+
+.proficiency.advanced::before {
+    animation-duration: 2s;
+}
+
+.proficiency.expert {
+    color: var(--accent-color);
+    background: linear-gradient(135deg, rgba(var(--accent-color-rgb), 0.1), rgba(var(--accent-color-rgb), 0.15));
+    border: 1px solid rgba(var(--accent-color-rgb), 0.25);
+    font-weight: 600;
+}
+
+.proficiency.expert::before {
+    animation-duration: 1.5s;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    .skills-section {
+        padding: 4rem 1.5rem;
+    }
+    
+    .skills-container {
+        gap: 2rem;
+    }
+    
+    .skill-category h3 {
+        font-size: 1.3rem;
+    }
+    
+    .skill-name {
+        font-size: 1rem;
+    }
+}

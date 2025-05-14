@@ -1,0 +1,15 @@
+/* Navbar Animation */
+@keyframes navbarFadeIn {
+    0% {
+        transform: translateX(-50%) translateY(-20px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(-50%) translateY(0);
+        opacity: 1;
+    }
+}
+
+.nav-container {
+    animation: navbarFadeIn 0.8s ease forwards;
+}

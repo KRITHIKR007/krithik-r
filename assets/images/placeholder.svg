@@ -1,0 +1,6 @@
+<!-- SVG-based placeholder image -->
+<svg width="400" height="300" xmlns="http://www.w3.org/2000/svg">
+  <rect width="400" height="300" fill="#1a1a1a" />
+  <text x="50%" y="50%" font-family="Space Grotesk, sans-serif" font-size="24px" fill="#ff3366" text-anchor="middle" alignment-baseline="middle">Image Coming Soon</text>
+  <rect x="10" y="10" width="380" height="280" stroke="#ff3366" stroke-width="2" fill="none" rx="8" ry="8" />
+</svg>

@@ -1,0 +1,69 @@
+/* Accessibility Improvements */
+
+/* Skip to main content link */
+.skip-link {
+    position: absolute;
+    top: -50px;
+    left: 0;
+    background: var(--accent-color);
+    color: white;
+    padding: 10px;
+    z-index: 10000;
+    transition: top 0.3s ease;
+}
+
+.skip-link:focus {
+    top: 0;
+}
+
+/* Focus styles */
+a:focus,
+button:focus,
+input:focus,
+textarea:focus,
+select:focus {
+    outline: 2px solid var(--accent-color);
+    outline-offset: 2px;
+}
+
+/* Improved contrast for text */
+.light-theme .text-on-light {
+    color: rgba(0, 0, 0, 0.87);
+}
+
+.high-contrast-theme .text-on-dark {
+    color: white;
+}
+
+/* ARIA landmark style adjustments */
+[role="navigation"],
+[role="main"],
+[role="complementary"],
+[role="banner"],
+[role="contentinfo"] {
+    display: block;
+}
+
+/* Visible focus for keyboard navigation */
+.keyboard-focus *:focus {
+    outline: 3px solid var(--accent-color) !important;
+    outline-offset: 3px !important;
+}
+
+/* Proper focus for interactive elements */
+.interactive {
+    cursor: pointer;
+}
+
+/* Styles for screen reader only content */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+}

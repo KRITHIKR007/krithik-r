@@ -1,0 +1,65 @@
+/* Theme Toggle Button */
+.theme-toggle {
+    background: none;
+    border: none;
+    color: var(--text-color);
+    font-size: 1.2rem;
+    cursor: pointer;
+    padding: 0.5rem;
+    margin-left: 1rem;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    background-color: var(--card-bg);
+}
+
+.theme-toggle:hover {
+    background-color: var(--card-hover-bg);
+    transform: translateY(-2px);
+}
+
+.theme-toggle:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px var(--accent-color);
+}
+
+/* For light theme */
+.light-theme .theme-toggle i.fa-moon {
+    display: none;
+}
+
+.light-theme .theme-toggle i.fa-sun {
+    display: inline-block;
+}
+
+/* For dark theme */
+.theme-toggle i.fa-sun {
+    display: none;
+}
+
+.theme-toggle i.fa-moon {
+    display: inline-block;
+}
+
+/* For high-contrast theme */
+.high-contrast-theme .theme-toggle i.fa-moon,
+.high-contrast-theme .theme-toggle i.fa-sun {
+    display: none;
+}
+
+.high-contrast-theme .theme-toggle i.fa-adjust {
+    display: inline-block;
+}
+
+.theme-toggle i.fa-adjust {
+    display: none;
+}
+
+/* Theme transition */
+body, body * {
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}

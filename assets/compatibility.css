@@ -1,0 +1,70 @@
+/* Browser Compatibility Styles */
+@supports not (backdrop-filter: blur(10px)) {
+    .nav-container,
+    .card-front,
+    .card-back,
+    .experience-card,
+    .internship-card,
+    .achievement-card,
+    .education-card,
+    .hero-stats,
+    .about-content,
+    .more-projects-cta,
+    .contact-form {
+        background-color: rgba(26, 26, 26, 0.95) !important;
+    }
+}
+
+/* Fix for Safari flex gap support */
+@supports not (gap: 20px) {
+    .flex-container,
+    .grid-container {
+        margin: -10px;
+    }
+    
+    .flex-container > *,
+    .grid-container > * {
+        margin: 10px;
+    }
+}
+
+/* High contrast mode improvements */
+@media (forced-colors: active) {
+    a:focus,
+    button:focus,
+    input:focus,
+    textarea:focus {
+        outline: 2px solid currentColor;
+    }
+    
+    /* Ensure foreground elements remain visible */
+    .project-overlay h3,
+    .project-card h3,
+    .section-title,
+    .hero-title,
+    .about-content,
+    .skill-name,
+    .project-title {
+        forced-color-adjust: none;
+    }
+}
+
+/* Prefers reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+    
+    .cube {
+        animation: none !important;
+    }
+    
+    .card-inner {
+        transition: none !important;
+    }
+}
